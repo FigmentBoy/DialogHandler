@@ -36,45 +36,10 @@ CCLayerColor* parseJSON(std::string json) {
 
 DWORD WINAPI update(LPVOID lpParam) {
 	while (true) {
-		if (GetAsyncKeyState(VK_NUMPAD0) & 0x01) {
-			DialogHandler::displayFromFile(0);
-		}
-
-		if (GetAsyncKeyState(VK_NUMPAD1) & 0x01) {
-			DialogHandler::displayFromFile(1);
-		}
-
-		if (GetAsyncKeyState(VK_NUMPAD2) & 0x01) {
-			DialogHandler::displayFromFile(2);
-		}
-
-		if (GetAsyncKeyState(VK_NUMPAD3) & 0x01) {
-			DialogHandler::displayFromFile(3);
-		}
-
-		if (GetAsyncKeyState(VK_NUMPAD4) & 0x01) {
-			DialogHandler::displayFromFile(4);
-		}
-
-		if (GetAsyncKeyState(VK_NUMPAD5) & 0x01) {
-			DialogHandler::displayFromFile(5);
-		}
-
-		if (GetAsyncKeyState(VK_NUMPAD6) & 0x01) {
-			DialogHandler::displayFromFile(6);
-		}
-
-		if (GetAsyncKeyState(VK_NUMPAD7) & 0x01) {
-			DialogHandler::displayFromFile(7);
-		}
-
-		if (GetAsyncKeyState(VK_NUMPAD8) & 0x01) {
-			DialogHandler::displayFromFile(8);
-		}
-
-		if (GetAsyncKeyState(VK_NUMPAD9) & 0x01) {
-			DialogHandler::displayFromFile(9);
-		}
+		for (int i = 0; i < 10; i++)
+			if (GetAsyncKeyState(VK_NUMPAD0 + i) & 0x01)
+				DialogHandler::displayFromFile(i);
+		Sleep(50);
 	}
 	return 0;
 }
